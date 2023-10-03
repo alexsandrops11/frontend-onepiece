@@ -1,0 +1,11 @@
+* {
+    margin: 0;
+    padding: 0;
+    /* é o tipo de sizing dos objetos, nesse estilo o padding e border estão no tamanho do size do arquivo */
+    box-sizing: border-box;
+}
+
+ul {
+    /* retirar as bolinhas das listas que vem por padrão */
+    list-style: none;
+}

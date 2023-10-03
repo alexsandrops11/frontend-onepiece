@@ -1,0 +1,128 @@
+body {
+    background-color: black;
+
+    /* para tirar a rolagem estranha */
+    overflow: hidden;
+}
+
+/* pseudo elemento */
+main::after {
+    /* windows + . abre emoji */
+    /* cria um elemento no html no final do main, dps */
+    content: "";
+    /* posição fixa na tela */
+    position: fixed;
+    top: 0;
+    background-color: violet;
+    min-height: 100vh;
+    width: 80vw;
+
+    background: linear-gradient(-233deg, black 40%, rgba(0,0,0,0) 65%
+    ) no-repeat;
+}
+
+.personagem {
+    display: none;
+    /* vh é altura do dispositivo que o usuário está acessando */
+    height: 100vh;
+}
+
+/* é uma classe que tem os dois por isso ta junto personagem e selecionado */
+.personagem.selecionado {
+    display: block;
+}
+
+/* a div imagem está dentro do elemento personagem */
+main .personagem .imagem {
+    width: 100%;
+    height: 100%;
+    /* a imagem não vai ficar distorcida pq vai, manter as dimensões para cobrir o elemento personagem */
+    object-fit: cover;
+}
+
+.conteudo {
+    /* colocar o background color ajuda a identificar o elemento */
+    /* background-color: orange; */
+    /* colcoar na posição absoluta trás o objeto para frente */
+    position: absolute;
+    top: 0;
+    left: 120px;
+
+    /* display flex ele vem como padrão row e os elementos vão ser dispostos em linha mas podemos mudar do jeito que preferirmos */
+    display: flex;
+    flex-direction: column;
+    /* alinhar o conteudo verticalmente no meio da div, mas somente ele não funciona pq para centralizar precisa ter um espaço disponível, por isso colcoamos o min-height para ficar na altura centralizando o texto na tela*/
+    justify-content: center;
+    min-height: 100vh;
+    max-width: 380px;
+
+    /* z index é o eixo de profundidade assim trazendo o pra frente */
+    z-index:1;
+}
+
+.conteudo .nome-personagem{
+    /* background-color: green; */
+    color: white;
+    font-size: 48px;
+    font-family: "Secular One";
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.conteudo .descricao {
+    /* background-color: blue; */
+
+    color: white;
+    font-family: "Rubik";
+    /* espaçamento entre as linhas */
+    line-height: 24px;
+}
+
+.conteudo .logo {
+    /* background-color: aquamarine; */
+    background-image: url("../imagens/one-piece-logo.png");
+    /* para ele funcionar com o height ele tem que cobrir o espaço com esse cover */
+    background-size: cover;
+    /* sem esse heigh ele não funciona pq é como se ele tivesse com altura 0 */
+    height: 100px;
+    width: 230px;
+    margin-bottom: 35px;
+}
+
+.botoes {
+    position: fixed;
+    top:0;
+    right: 0;
+    /* background-color: orange; */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 180px;
+
+    /* alinhamento vertical */
+    justify-content: center;
+
+    /* alinhamento horizontal */
+    align-items: center;
+    gap: 10px;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.botoes .botao {
+    /* retirar o contorno */
+    border: none;
+    /* retirar o branquinho do fundo */
+    background: black;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.botoes .botao img {
+    border-radius: 50%;
+}
+
+.botoes .botao.selecionado {
+    transform: scale(1.2);
+    box-shadow: 0 0 10px #D9D9D9;
+    
+}
